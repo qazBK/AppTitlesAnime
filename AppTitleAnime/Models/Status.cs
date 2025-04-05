@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppTitleAnime;
+namespace AppTitleAnime.Models;
 
 public partial class Status
 {
@@ -9,5 +9,7 @@ public partial class Status
 
     public string StatusAnime { get; set; } = null!;
 
+
+    //Навигация
     public virtual ICollection<TitlesStatus> TitlesStatuses { get; set; } = new List<TitlesStatus>();
 }

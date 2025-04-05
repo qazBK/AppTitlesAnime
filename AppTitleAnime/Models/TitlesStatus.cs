@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppTitleAnime;
+namespace AppTitleAnime.Models;
 
 public partial class TitlesStatus
 {
@@ -12,6 +12,8 @@ public partial class TitlesStatus
     public int IdAnime { get; set; }
 
     public DateOnly? DateStatus { get; set; }
+
+    //Навигация
 
     public virtual AnimeTitle IdAnimeNavigation { get; set; } = null!;
 
