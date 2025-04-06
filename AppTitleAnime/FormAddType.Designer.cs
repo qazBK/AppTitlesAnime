@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             flowLayoutPanelBottom = new FlowLayoutPanel();
             btSaveChenges = new Button();
             btConcel = new Button();
             panelFill = new Panel();
             textBoxType = new TextBox();
             labelType = new Label();
+            errorProvider = new ErrorProvider(components);
             flowLayoutPanelBottom.SuspendLayout();
             panelFill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanelBottom
@@ -47,7 +50,7 @@
             flowLayoutPanelBottom.Dock = DockStyle.Bottom;
             flowLayoutPanelBottom.Location = new Point(0, 80);
             flowLayoutPanelBottom.Name = "flowLayoutPanelBottom";
-            flowLayoutPanelBottom.Padding = new Padding(10);
+            flowLayoutPanelBottom.Padding = new Padding(10, 10, 20, 10);
             flowLayoutPanelBottom.Size = new Size(434, 61);
             flowLayoutPanelBottom.TabIndex = 1;
             // 
@@ -55,6 +58,7 @@
             // 
             btSaveChenges.AutoSize = true;
             btSaveChenges.BackColor = Color.SlateBlue;
+            btSaveChenges.DialogResult = DialogResult.OK;
             btSaveChenges.ForeColor = Color.White;
             btSaveChenges.Location = new Point(13, 13);
             btSaveChenges.Name = "btSaveChenges";
@@ -67,6 +71,7 @@
             // 
             btConcel.AutoSize = true;
             btConcel.BackColor = Color.SlateBlue;
+            btConcel.DialogResult = DialogResult.Cancel;
             btConcel.ForeColor = Color.White;
             btConcel.Location = new Point(134, 13);
             btConcel.Name = "btConcel";
@@ -83,7 +88,7 @@
             panelFill.Dock = DockStyle.Fill;
             panelFill.Location = new Point(0, 0);
             panelFill.Name = "panelFill";
-            panelFill.Padding = new Padding(10);
+            panelFill.Padding = new Padding(10, 10, 20, 10);
             panelFill.Size = new Size(434, 80);
             panelFill.TabIndex = 1;
             // 
@@ -92,8 +97,10 @@
             textBoxType.Dock = DockStyle.Top;
             textBoxType.Location = new Point(10, 35);
             textBoxType.Name = "textBoxType";
-            textBoxType.Size = new Size(414, 33);
+            textBoxType.Size = new Size(404, 33);
             textBoxType.TabIndex = 1;
+            textBoxType.TextChanged += textBoxType_TextChanged;
+            textBoxType.Validating += TextBoxType_Validating;
             // 
             // labelType
             // 
@@ -105,6 +112,10 @@
             labelType.Size = new Size(104, 25);
             labelType.TabIndex = 0;
             labelType.Text = "Тип аниме";
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // FormAddType
             // 
@@ -122,6 +133,7 @@
             flowLayoutPanelBottom.PerformLayout();
             panelFill.ResumeLayout(false);
             panelFill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -132,7 +144,8 @@
         private Panel panelFill;
         private Button btSaveChenges;
         private Button btConcel;
-        private TextBox textBoxType;
         private Label labelType;
+        protected internal TextBox textBoxType;
+        private ErrorProvider errorProvider;
     }
 }

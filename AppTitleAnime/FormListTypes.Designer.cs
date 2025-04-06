@@ -50,7 +50,7 @@
             flowLayoutPanelTop.Location = new Point(0, 0);
             flowLayoutPanelTop.Name = "flowLayoutPanelTop";
             flowLayoutPanelTop.Padding = new Padding(10);
-            flowLayoutPanelTop.Size = new Size(910, 61);
+            flowLayoutPanelTop.Size = new Size(934, 61);
             flowLayoutPanelTop.TabIndex = 0;
             flowLayoutPanelTop.Paint += panel1_Paint;
             // 
@@ -65,6 +65,7 @@
             btUpdateType.TabIndex = 2;
             btUpdateType.Text = "Изменить";
             btUpdateType.UseVisualStyleBackColor = false;
+            btUpdateType.Click += BtUpdateType_Click;
             // 
             // btDeleteType
             // 
@@ -77,6 +78,7 @@
             btDeleteType.TabIndex = 1;
             btDeleteType.Text = "Удалить";
             btDeleteType.UseVisualStyleBackColor = false;
+            btDeleteType.Click += BtDeleteType_Click;
             // 
             // btAddType
             // 
@@ -93,13 +95,16 @@
             // 
             // dateGridViewTypes
             // 
+            dateGridViewTypes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dateGridViewTypes.BackgroundColor = Color.FromArgb(64, 64, 64);
             dateGridViewTypes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dateGridViewTypes.Dock = DockStyle.Fill;
             dateGridViewTypes.Location = new Point(10, 10);
+            dateGridViewTypes.MultiSelect = false;
             dateGridViewTypes.Name = "dateGridViewTypes";
             dateGridViewTypes.ReadOnly = true;
-            dateGridViewTypes.Size = new Size(890, 412);
+            dateGridViewTypes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dateGridViewTypes.Size = new Size(914, 430);
             dateGridViewTypes.TabIndex = 1;
             dateGridViewTypes.CellContentClick += ryy_CellContentClick;
             // 
@@ -111,7 +116,7 @@
             PanelFill.Location = new Point(0, 61);
             PanelFill.Name = "PanelFill";
             PanelFill.Padding = new Padding(10);
-            PanelFill.Size = new Size(910, 432);
+            PanelFill.Size = new Size(934, 450);
             PanelFill.TabIndex = 2;
             // 
             // FormListTypes
@@ -119,13 +124,14 @@
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(910, 493);
+            ClientSize = new Size(934, 511);
             Controls.Add(PanelFill);
             Controls.Add(flowLayoutPanelTop);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
             Name = "FormListTypes";
             Text = "Список типов аниме";
+            Load += FormListTypes_Load;
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dateGridViewTypes).EndInit();
