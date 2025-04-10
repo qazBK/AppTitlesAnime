@@ -1,5 +1,4 @@
-﻿using AppTitleAnime.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Data;
 using AppContext = AppTitleAnime.Models.AppContext;
@@ -49,7 +48,7 @@ namespace AppTitleAnime
             db.Genres.Add(genre);
             db.SaveChanges();
 
-            MessageBox.Show("Новый Жанр добавлен");
+            MessageBox.Show("Новый жанр добавлен");
             this.dateGridViewGenres.DataSource = this.db.Genres.Local.OrderBy(o => o.GenreAnime).ToList();
         }
 

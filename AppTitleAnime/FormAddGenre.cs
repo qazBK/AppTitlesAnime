@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 
 namespace AppTitleAnime
 {
@@ -15,16 +7,6 @@ namespace AppTitleAnime
         public FormAddGenre()
         {
             InitializeComponent();
-        }
-
-        private void textBoxType_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormAddGenre_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void TextBoxGenre_Validating(object sender, CancelEventArgs e)
@@ -40,11 +22,6 @@ namespace AppTitleAnime
                 btSaveChenges.Enabled = true;
 
             }
-        }
-
-        private void panelFill_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

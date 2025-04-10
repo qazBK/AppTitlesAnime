@@ -35,7 +35,7 @@
             // butnShowTypes
             // 
             butnShowTypes.AutoSize = true;
-            butnShowTypes.BackColor = Color.MediumPurple;
+            butnShowTypes.BackColor = Color.SlateBlue;
             butnShowTypes.ForeColor = Color.White;
             butnShowTypes.Location = new Point(12, 12);
             butnShowTypes.Name = "butnShowTypes";
@@ -48,7 +48,7 @@
             // butnShowGenre
             // 
             butnShowGenre.AutoSize = true;
-            butnShowGenre.BackColor = Color.MediumPurple;
+            butnShowGenre.BackColor = Color.SlateBlue;
             butnShowGenre.ForeColor = Color.White;
             butnShowGenre.Location = new Point(12, 64);
             butnShowGenre.Name = "butnShowGenre";

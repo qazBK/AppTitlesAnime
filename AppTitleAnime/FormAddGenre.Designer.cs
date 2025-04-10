@@ -91,7 +91,6 @@
             panelFill.Padding = new Padding(10, 10, 20, 10);
             panelFill.Size = new Size(434, 80);
             panelFill.TabIndex = 0;
-            panelFill.Paint += panelFill_Paint;
             // 
             // textBoxGenre
             // 
@@ -128,8 +127,7 @@
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
             Name = "FormAddGenre";
-            Text = "FormAddGenre";
-            Load += FormAddGenre_Load;
+            Text = "Жанр";
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();
             panelFill.ResumeLayout(false);
