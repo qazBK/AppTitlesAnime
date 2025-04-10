@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace AppTitleAnime.Models;
 
@@ -49,7 +47,7 @@ public partial class AppContext : DbContext
             entity.Property(e => e.Poster).HasColumnName("poster");
             entity.Property(e => e.Studio).HasColumnName("studio");
 
-            entity.HasOne(d => d.IdTypeNavigation).WithMany(p => p.AnimeTitles)
+            entity.HasOne(d => d.Type).WithMany(p => p.AnimeTitles)
                 .HasForeignKey(d => d.IdType)
                 .HasConstraintName("fk_ titles_to_types");
         });
@@ -84,11 +82,11 @@ public partial class AppContext : DbContext
             entity.Property(e => e.IdAnime).HasColumnName("id_anime");
             entity.Property(e => e.IdGenre).HasColumnName("id_genre");
 
-            entity.HasOne(d => d.IdAnimeNavigation).WithMany(p => p.TitlesGenres)
+            entity.HasOne(d => d.AnimeTitle).WithMany(p => p.TitlesGenres)
                 .HasForeignKey(d => d.IdAnime)
                 .HasConstraintName("fk_titles_geners_to_anime_titles");
 
-            entity.HasOne(d => d.IdGenreNavigation).WithMany(p => p.TitlesGenres)
+            entity.HasOne(d => d.Genre).WithMany(p => p.TitlesGenres)
                 .HasForeignKey(d => d.IdGenre)
                 .HasConstraintName("fk_titles_geners_to_geners");
         });
@@ -104,11 +102,11 @@ public partial class AppContext : DbContext
             entity.Property(e => e.IdAnime).HasColumnName("id_anime");
             entity.Property(e => e.IdStatus).HasColumnName("id_status");
 
-            entity.HasOne(d => d.IdAnimeNavigation).WithMany(p => p.TitlesStatuses)
+            entity.HasOne(d => d.AnimeTitle).WithMany(p => p.TitlesStatuses)
                 .HasForeignKey(d => d.IdAnime)
                 .HasConstraintName("fk_titles_to_anime_titles");
 
-            entity.HasOne(d => d.IdStatusNavigation).WithMany(p => p.TitlesStatuses)
+            entity.HasOne(d => d.Status).WithMany(p => p.TitlesStatuses)
                 .HasForeignKey(d => d.IdStatus)
                 .HasConstraintName("fk_titles_to_statuses");
         });

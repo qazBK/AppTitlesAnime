@@ -1,6 +1,6 @@
 ﻿namespace AppTitleAnime
 {
-    partial class FormAddType
+    partial class FormAddGenre
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@
             btSaveChenges = new Button();
             btConcel = new Button();
             panelFill = new Panel();
-            textBoxType = new TextBox();
-            labelType = new Label();
+            textBoxGenre = new TextBox();
+            labelGenre = new Label();
             errorProvider = new ErrorProvider(components);
             flowLayoutPanelBottom.SuspendLayout();
             panelFill.SuspendLayout();
@@ -66,7 +66,6 @@
             btSaveChenges.TabIndex = 0;
             btSaveChenges.Text = "Сохранить";
             btSaveChenges.UseVisualStyleBackColor = false;
-            btSaveChenges.Click += btSaveChenges_Click;
             // 
             // btConcel
             // 
@@ -84,41 +83,41 @@
             // panelFill
             // 
             panelFill.BackColor = Color.FromArgb(64, 64, 64);
-            panelFill.Controls.Add(textBoxType);
-            panelFill.Controls.Add(labelType);
+            panelFill.Controls.Add(textBoxGenre);
+            panelFill.Controls.Add(labelGenre);
             panelFill.Dock = DockStyle.Fill;
             panelFill.Location = new Point(0, 0);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(10, 10, 20, 10);
             panelFill.Size = new Size(434, 80);
-            panelFill.TabIndex = 1;
+            panelFill.TabIndex = 0;
+            panelFill.Paint += panelFill_Paint;
             // 
-            // textBoxType
+            // textBoxGenre
             // 
-            textBoxType.Dock = DockStyle.Top;
-            textBoxType.Location = new Point(10, 35);
-            textBoxType.Name = "textBoxType";
-            textBoxType.Size = new Size(404, 33);
-            textBoxType.TabIndex = 1;
-            textBoxType.TextChanged += textBoxType_TextChanged;
-            textBoxType.Validating += TextBoxType_Validating;
+            textBoxGenre.Dock = DockStyle.Top;
+            textBoxGenre.Location = new Point(10, 35);
+            textBoxGenre.Name = "textBoxGenre";
+            textBoxGenre.Size = new Size(404, 33);
+            textBoxGenre.TabIndex = 1;
+            textBoxGenre.Validating += TextBoxGenre_Validating;
             // 
-            // labelType
+            // labelGenre
             // 
-            labelType.AutoSize = true;
-            labelType.Dock = DockStyle.Top;
-            labelType.ForeColor = Color.White;
-            labelType.Location = new Point(10, 10);
-            labelType.Name = "labelType";
-            labelType.Size = new Size(104, 25);
-            labelType.TabIndex = 0;
-            labelType.Text = "Тип аниме";
+            labelGenre.AutoSize = true;
+            labelGenre.Dock = DockStyle.Top;
+            labelGenre.ForeColor = Color.White;
+            labelGenre.Location = new Point(10, 10);
+            labelGenre.Name = "labelGenre";
+            labelGenre.Size = new Size(120, 25);
+            labelGenre.TabIndex = 0;
+            labelGenre.Text = "Жанр аниме";
             // 
             // errorProvider
             // 
             errorProvider.ContainerControl = this;
             // 
-            // FormAddType
+            // FormAddGenre
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -128,9 +127,9 @@
             Controls.Add(flowLayoutPanelBottom);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
-            Name = "FormAddType";
-            Text = "Тиип аниме";
-            Load += FormAddType_Load;
+            Name = "FormAddGenre";
+            Text = "FormAddGenre";
+            Load += FormAddGenre_Load;
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();
             panelFill.ResumeLayout(false);
@@ -143,11 +142,11 @@
         #endregion
 
         private FlowLayoutPanel flowLayoutPanelBottom;
-        private Panel panelFill;
         private Button btSaveChenges;
         private Button btConcel;
-        private Label labelType;
-        protected internal TextBox textBoxType;
+        private Panel panelFill;
+        protected internal TextBox textBoxGenre;
+        private Label labelGenre;
         private ErrorProvider errorProvider;
     }
 }

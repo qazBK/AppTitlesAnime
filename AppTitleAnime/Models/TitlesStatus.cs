@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AppTitleAnime.Models;
+﻿namespace AppTitleAnime.Models;
 
 public partial class TitlesStatus
 {
@@ -15,7 +12,7 @@ public partial class TitlesStatus
 
     //Навигация
 
-    public virtual AnimeTitle IdAnimeNavigation { get; set; } = null!;
+    public virtual AnimeTitle AnimeTitle { get; set; } = null!;
 
-    public virtual Status IdStatusNavigation { get; set; } = null!;
+    public virtual Status Status { get; set; } = null!;
 }

@@ -13,7 +13,7 @@ public partial class TitlesGenre
 
 
     //Навигация
-    public virtual AnimeTitle IdAnimeNavigation { get; set; } = null!;
+    public virtual AnimeTitle AnimeTitle { get; set; } = null!;
 
-    public virtual Genre IdGenreNavigation { get; set; } = null!;
+    public virtual Genre Genre { get; set; } = null!;
 }

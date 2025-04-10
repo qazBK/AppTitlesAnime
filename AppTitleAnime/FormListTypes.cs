@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using AppTitleAnime.Models;
-using Microsoft.EntityFrameworkCore;
 using AppContext = AppTitleAnime.Models.AppContext;
 using Type = AppTitleAnime.Models.Type;
 
@@ -70,6 +62,19 @@ namespace AppTitleAnime
 
             if (DialogResult == DialogResult.Cancel) // чек позже result
                 return;
+            ///////////////////////////
+             string newTypeAnime = formAddType.textBoxType.Text;
+
+            
+             bool exists = db.Types.Any(t => t.TypeAnime==newTypeAnime);
+
+
+             if (exists)
+             {
+                 MessageBox.Show("Запись с таким типом аниме уже существует.");
+                 return;
+             }
+             //////////////////////////////////
             Type type = new Type();
             type.TypeAnime = formAddType.textBoxType.Text;
 
@@ -78,6 +83,7 @@ namespace AppTitleAnime
 
             MessageBox.Show("Новый объект добавлен");
             this.dateGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeAnime).ToList();
+
 
 
         }
@@ -99,6 +105,9 @@ namespace AppTitleAnime
             if (!converted)
                 return;
 
+            
+
+
             Type type = db.Types.Find(id);
             FormAddType formAddType = new();
             formAddType.textBoxType.Text = type.TypeAnime;
@@ -107,6 +116,20 @@ namespace AppTitleAnime
 
             if (result == DialogResult.Cancel)
                 return;
+
+            //////////////////
+            string newTypeAnime = formAddType.textBoxType.Text;
+
+            
+            bool exists = db.Types.Any(t => t.TypeAnime == newTypeAnime);
+
+
+            if (exists)
+            {
+                MessageBox.Show("Запись с таким типом аниме уже существует.");
+                return;
+            }
+            ///////////////
             type.TypeAnime = formAddType.textBoxType.Text;
             db.Types.Update(type);
             db.SaveChanges();
@@ -145,6 +168,16 @@ namespace AppTitleAnime
             MessageBox.Show("Объект удалён");
 
             this.dateGridViewTypes.DataSource = this.db.Types.OrderBy(o => o.TypeAnime).ToList();
+
+        }
+
+        private void PanelFill_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btUpdateType_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
