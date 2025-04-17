@@ -99,6 +99,7 @@
             textBoxGenre.Name = "textBoxGenre";
             textBoxGenre.Size = new Size(404, 33);
             textBoxGenre.TabIndex = 1;
+            textBoxGenre.TextChanged += textBoxGenre_TextChanged;
             textBoxGenre.Validating += TextBoxGenre_Validating;
             // 
             // labelGenre

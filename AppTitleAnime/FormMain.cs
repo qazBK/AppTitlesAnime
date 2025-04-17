@@ -25,8 +25,14 @@ namespace AppTitleAnime
 
         private void ButnShowGenre_Click(object sender, EventArgs e)
         {
-            FormListGenre formListGenre = new FormListGenre();
+            FormListGenres formListGenre = new FormListGenres();
             formListGenre.Show();
+        }
+
+        private void ButnShowStatuse_Click(object sender, EventArgs e)
+        {
+            FormListStatuses formListStatuse = new FormListStatuses();
+            formListStatuse.Show();
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             butnShowTypes = new Button();
             butnShowGenre = new Button();
+            butnShowStatuse = new Button();
             SuspendLayout();
             // 
             // butnShowTypes
@@ -52,11 +53,24 @@
             butnShowGenre.ForeColor = Color.White;
             butnShowGenre.Location = new Point(12, 64);
             butnShowGenre.Name = "butnShowGenre";
-            butnShowGenre.Size = new Size(324, 35);
+            butnShowGenre.Size = new Size(337, 35);
             butnShowGenre.TabIndex = 2;
-            butnShowGenre.Text = "Отобразить список \"Жанр аниме\"";
+            butnShowGenre.Text = "Отобразить список \"Жанры аниме\"";
             butnShowGenre.UseVisualStyleBackColor = false;
             butnShowGenre.Click += ButnShowGenre_Click;
+            // 
+            // butnShowStatuse
+            // 
+            butnShowStatuse.AutoSize = true;
+            butnShowStatuse.BackColor = Color.SlateBlue;
+            butnShowStatuse.ForeColor = Color.White;
+            butnShowStatuse.Location = new Point(12, 115);
+            butnShowStatuse.Name = "butnShowStatuse";
+            butnShowStatuse.Size = new Size(337, 35);
+            butnShowStatuse.TabIndex = 3;
+            butnShowStatuse.Text = "Отобразить список \"Статусы аниме\"";
+            butnShowStatuse.UseVisualStyleBackColor = false;
+            butnShowStatuse.Click += ButnShowStatuse_Click;
             // 
             // FormMain
             // 
@@ -64,6 +78,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(914, 547);
+            Controls.Add(butnShowStatuse);
             Controls.Add(butnShowGenre);
             Controls.Add(butnShowTypes);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
@@ -79,5 +94,6 @@
 
         private Button butnShowTypes;
         private Button butnShowGenre;
+        private Button butnShowStatuse;
     }
 }

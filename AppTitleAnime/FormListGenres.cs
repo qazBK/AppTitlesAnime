@@ -7,10 +7,10 @@ using Genre = AppTitleAnime.Models.Genre;
 
 namespace AppTitleAnime
 {
-    public partial class FormListGenre : Form
+    public partial class FormListGenres : Form
     {
         private AppContext db;
-        public FormListGenre()
+        public FormListGenres()
         {
             InitializeComponent();
         }
@@ -68,15 +68,15 @@ namespace AppTitleAnime
 
 
             Genre genre = db.Genres.Find(id);
-            FormAddGenre formAddType = new();
-            formAddType.textBoxGenre.Text = genre.GenreAnime;
+            FormAddGenre formAddGenre = new();
+            formAddGenre.textBoxGenre.Text = genre.GenreAnime;
 
-            DialogResult result = formAddType.ShowDialog(this);
+            DialogResult result = formAddGenre.ShowDialog(this);
 
             if (result == DialogResult.Cancel)
                 return;
 
-            genre.GenreAnime = formAddType.textBoxGenre.Text;
+            genre.GenreAnime = formAddGenre.textBoxGenre.Text;
             db.Genres.Update(genre);
             db.SaveChanges();
 

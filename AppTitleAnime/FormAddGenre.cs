@@ -1,12 +1,21 @@
 ﻿using System.ComponentModel;
-
+using AppContext = AppTitleAnime.Models.AppContext;
 namespace AppTitleAnime
 {
     public partial class FormAddGenre : Form
-    {
+    {   
+        private AppContext db;
         public FormAddGenre()
         {
             InitializeComponent();
+        }
+        
+       
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.db = new AppContext();
+
         }
 
         private void TextBoxGenre_Validating(object sender, CancelEventArgs e)
@@ -22,6 +31,44 @@ namespace AppTitleAnime
                 btSaveChenges.Enabled = true;
 
             }
+
+            FormAddGenre formAddGenre = new FormAddGenre();
+            string newGenreAnime = textBoxGenre.Text;
+
+            bool exists = db.Genres.Any(t => t.GenreAnime == newGenreAnime);//.ToLower()
+
+
+
+
+            if (exists)
+            {
+                btSaveChenges.Enabled = false;
+                errorProvider.SetError(textBoxGenre, "Поле должно быть уникальным");
+
+            }
+            else
+            {
+                errorProvider.Clear();
+                btSaveChenges.Enabled = true;
+
+            }
+        }
+
+        private void textBoxGenre_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxGenre.Text))
+            {
+                errorProvider.SetError(textBoxGenre, "Поле не может быть пустым!");
+                btSaveChenges.Enabled = false;
+            }
+            else
+            {
+                errorProvider.Clear();
+                btSaveChenges.Enabled = true;
+
+            }
+
+            
         }
     }
 }

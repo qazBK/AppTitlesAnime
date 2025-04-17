@@ -40,20 +40,7 @@ namespace AppTitleAnime
         }
 
 
-        private void btDeletType_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ryy_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void BtAddType_Click(object sender, EventArgs e)
         {
@@ -62,19 +49,19 @@ namespace AppTitleAnime
 
             if (DialogResult == DialogResult.Cancel) // чек позже result
                 return;
-            ///////////////////////////
-             string newTypeAnime = formAddType.textBoxType.Text;
-
-            
-             bool exists = db.Types.Any(t => t.TypeAnime==newTypeAnime);
+          /*  ///////////////////////////
+            string newTypeAnime = formAddType.textBoxType.Text;
 
 
-             if (exists)
-             {
-                 MessageBox.Show("Запись с таким типом аниме уже существует.");
-                 return;
-             }
-             //////////////////////////////////
+            bool exists = db.Types.Any(t => t.TypeAnime == newTypeAnime);
+
+
+            if (exists)
+            {
+                MessageBox.Show("Запись с таким типом аниме уже существует.");
+                return;
+            }
+            //////////////////////////////////*/
             Type type = new Type();
             type.TypeAnime = formAddType.textBoxType.Text;
 
@@ -85,11 +72,6 @@ namespace AppTitleAnime
             this.dateGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeAnime).ToList();
 
 
-
-        }
-
-        private void FormListTypes_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -105,7 +87,7 @@ namespace AppTitleAnime
             if (!converted)
                 return;
 
-            
+
 
 
             Type type = db.Types.Find(id);
@@ -117,10 +99,10 @@ namespace AppTitleAnime
             if (result == DialogResult.Cancel)
                 return;
 
-            //////////////////
+           /* //////////////////
             string newTypeAnime = formAddType.textBoxType.Text;
 
-            
+
             bool exists = db.Types.Any(t => t.TypeAnime == newTypeAnime);
 
 
@@ -129,7 +111,7 @@ namespace AppTitleAnime
                 MessageBox.Show("Запись с таким типом аниме уже существует.");
                 return;
             }
-            ///////////////
+            ///////////////*/
             type.TypeAnime = formAddType.textBoxType.Text;
             db.Types.Update(type);
             db.SaveChanges();
@@ -171,14 +153,6 @@ namespace AppTitleAnime
 
         }
 
-        private void PanelFill_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btUpdateType_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
