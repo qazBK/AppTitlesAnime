@@ -2,10 +2,10 @@
 using AppContext = AppTitleAnime.Models.AppContext;
 namespace AppTitleAnime
 {
-    public partial class FormAddStatus : Form
+    public partial class FormAddUpdateStatus : Form
     {
         private AppContext db;
-        public FormAddStatus()
+        public FormAddUpdateStatus()
         {
             InitializeComponent();
         }
@@ -33,7 +33,7 @@ namespace AppTitleAnime
                 btSaveChenges.Enabled = true;//пропускаем
 
             }
-            FormAddStatus formAddStatus = new FormAddStatus();
+            FormAddUpdateStatus formAddStatus = new FormAddUpdateStatus();
             string newStatusAnime = textBoxStatuse.Text;//сохраняем текст в newStatusAnime
 
             bool exists = db.Statuses.Any(t => t.StatusAnime == newStatusAnime);//.ToLower()
@@ -41,7 +41,7 @@ namespace AppTitleAnime
             bool exists2 = db.Statuses.Any(t=>t.StatusAnime == newStatusAnime);
 
 
-            if (exists2)
+            if (exists)
             {
                 btSaveChenges.Enabled = false;//уходим в ошибку 
                 errorProvider.SetError(textBoxStatuse, "Поле должно быть уникальным");

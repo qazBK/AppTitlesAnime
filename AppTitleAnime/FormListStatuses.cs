@@ -18,7 +18,7 @@ namespace AppTitleAnime
             base.OnLoad(e);
             this.db = new AppContext(); 
             this.db.Statuses.Load();//прогружаем таблицук Statuses
-            this.dateGridViewStatuses.DataSource = this.db.Statuses.Local.OrderBy(o => o.StatusAnime).ToList();//вывод тблтци
+            this.dateGridViewStatuses.DataSource = this.db.Statuses.Local.OrderBy(o => o.StatusAnime).ToList();//вывод таблтци
 
             //Скрытие столбцов
             dateGridViewStatuses.Columns["id"].Visible = false;
@@ -37,7 +37,7 @@ namespace AppTitleAnime
 
         private void BtAddStatuse_Click(object sender, EventArgs e)
         {
-            FormAddStatus formAddStatuse = new FormAddStatus();//создаём новый объект формы 
+            FormAddUpdateStatus formAddStatuse = new FormAddUpdateStatus();//создаём новый объект формы 
             DialogResult = formAddStatuse.ShowDialog();
 
             if (DialogResult == DialogResult.Cancel) //выход если окно закрыли
@@ -64,7 +64,7 @@ namespace AppTitleAnime
                 return;
 
             Status status = db.Statuses.Find(id);//ищим поле с таким id
-            FormAddStatus formAddStatuse = new();//cоздается новый экземпляр формы 
+            FormAddUpdateStatus formAddStatuse = new();//cоздается новый экземпляр формы 
             formAddStatuse.textBoxStatuse.Text = status.StatusAnime;//выводим в текстовое поле садержимое status.
 
             DialogResult result = formAddStatuse.ShowDialog(this); //запоминаем нажатую кнопку 

@@ -37,7 +37,7 @@ namespace AppTitleAnime
         }
         private void BtAddGenre_Click(object sender, EventArgs e)
         {
-            FormAddGenre formAddGenre = new FormAddGenre();
+            FormAddUpdateGenre formAddGenre = new FormAddUpdateGenre();
             DialogResult = formAddGenre.ShowDialog();
 
             if (DialogResult == DialogResult.Cancel) // чек позже result
@@ -68,7 +68,7 @@ namespace AppTitleAnime
 
 
             Genre genre = db.Genres.Find(id);
-            FormAddGenre formAddGenre = new();
+            FormAddUpdateGenre formAddGenre = new();
             formAddGenre.textBoxGenre.Text = genre.GenreAnime;
 
             DialogResult result = formAddGenre.ShowDialog(this);

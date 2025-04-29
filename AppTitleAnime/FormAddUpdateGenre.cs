@@ -1,26 +1,28 @@
 ﻿using System.ComponentModel;
 using AppContext = AppTitleAnime.Models.AppContext;
-
 namespace AppTitleAnime
 {
-    public partial class FormAddType : Form
-    {
+    public partial class FormAddUpdateGenre : Form
+    {   
         private AppContext db;
-        public FormAddType()
+        public FormAddUpdateGenre()
         {
             InitializeComponent();
         }
+        
+       
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             this.db = new AppContext();
-            
+
         }
-        private void TextBoxType_Validating(object sender, CancelEventArgs e)
+
+        private void TextBoxGenre_Validating(object sender, CancelEventArgs e)
         {
-            if (String.IsNullOrEmpty(textBoxType.Text))
+            if (String.IsNullOrEmpty(textBoxGenre.Text))
             {
-                errorProvider.SetError(textBoxType, "Поле не может быть пустым!");
+                errorProvider.SetError(textBoxGenre, "Поле не может быть пустым!");
                 btSaveChenges.Enabled = false;
             }
             else
@@ -29,17 +31,19 @@ namespace AppTitleAnime
                 btSaveChenges.Enabled = true;
 
             }
-            FormAddType formAddType = new FormAddType();
-            string newTypeAnime = textBoxType.Text;
 
-            bool exists = db.Types.Any(t => t.TypeAnime == newTypeAnime);//.ToLower()
+            FormAddUpdateGenre formAddGenre = new FormAddUpdateGenre();
+            string newGenreAnime = textBoxGenre.Text;
+
+            bool exists = db.Genres.Any(t => t.GenreAnime == newGenreAnime);//.ToLower()
+
 
 
 
             if (exists)
             {
                 btSaveChenges.Enabled = false;
-                errorProvider.SetError(textBoxType, "Поле должно быть уникальным");
+                errorProvider.SetError(textBoxGenre, "Поле должно быть уникальным");
 
             }
             else
@@ -48,14 +52,13 @@ namespace AppTitleAnime
                 btSaveChenges.Enabled = true;
 
             }
-
         }
 
-        private void textBoxType_TextChanged(object sender, EventArgs e)
+        private void textBoxGenre_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBoxType.Text))
+            if (String.IsNullOrEmpty(textBoxGenre.Text))
             {
-                errorProvider.SetError(textBoxType, "Поле не может быть пустым!");
+                errorProvider.SetError(textBoxGenre, "Поле не может быть пустым!");
                 btSaveChenges.Enabled = false;
             }
             else
@@ -64,6 +67,8 @@ namespace AppTitleAnime
                 btSaveChenges.Enabled = true;
 
             }
+
+            
         }
     }
 }

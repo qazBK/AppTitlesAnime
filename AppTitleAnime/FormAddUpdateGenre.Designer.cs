@@ -1,6 +1,6 @@
 ﻿namespace AppTitleAnime
 {
-    partial class FormAddStatus
+    partial class FormAddUpdateGenre
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@
             btSaveChenges = new Button();
             btConcel = new Button();
             panelFill = new Panel();
-            textBoxStatuse = new TextBox();
-            labelStatuse = new Label();
+            textBoxGenre = new TextBox();
+            labelGenre = new Label();
             errorProvider = new ErrorProvider(components);
             flowLayoutPanelBottom.SuspendLayout();
             panelFill.SuspendLayout();
@@ -52,7 +52,7 @@
             flowLayoutPanelBottom.Name = "flowLayoutPanelBottom";
             flowLayoutPanelBottom.Padding = new Padding(10, 10, 20, 10);
             flowLayoutPanelBottom.Size = new Size(434, 61);
-            flowLayoutPanelBottom.TabIndex = 0;
+            flowLayoutPanelBottom.TabIndex = 1;
             // 
             // btSaveChenges
             // 
@@ -66,7 +66,6 @@
             btSaveChenges.TabIndex = 0;
             btSaveChenges.Text = "Сохранить";
             btSaveChenges.UseVisualStyleBackColor = false;
-            btSaveChenges.Click += BtSaveChenges_Click;
             // 
             // btConcel
             // 
@@ -77,15 +76,15 @@
             btConcel.Location = new Point(134, 13);
             btConcel.Name = "btConcel";
             btConcel.Size = new Size(88, 35);
-            btConcel.TabIndex = 0;
+            btConcel.TabIndex = 1;
             btConcel.Text = "Отмена";
             btConcel.UseVisualStyleBackColor = false;
             // 
             // panelFill
             // 
             panelFill.BackColor = Color.FromArgb(64, 64, 64);
-            panelFill.Controls.Add(textBoxStatuse);
-            panelFill.Controls.Add(labelStatuse);
+            panelFill.Controls.Add(textBoxGenre);
+            panelFill.Controls.Add(labelGenre);
             panelFill.Dock = DockStyle.Fill;
             panelFill.Location = new Point(0, 0);
             panelFill.Name = "panelFill";
@@ -93,42 +92,43 @@
             panelFill.Size = new Size(434, 80);
             panelFill.TabIndex = 0;
             // 
-            // textBoxStatuse
+            // textBoxGenre
             // 
-            textBoxStatuse.Dock = DockStyle.Top;
-            textBoxStatuse.Location = new Point(10, 35);
-            textBoxStatuse.Name = "textBoxStatuse";
-            textBoxStatuse.Size = new Size(404, 33);
-            textBoxStatuse.TabIndex = 1;
-            textBoxStatuse.TextChanged += textBoxStatuse_TextChanged;
-            textBoxStatuse.Validating += textBoxStatuse_Validating;
+            textBoxGenre.Dock = DockStyle.Top;
+            textBoxGenre.Location = new Point(10, 35);
+            textBoxGenre.Name = "textBoxGenre";
+            textBoxGenre.Size = new Size(404, 33);
+            textBoxGenre.TabIndex = 1;
+            textBoxGenre.TextChanged += textBoxGenre_TextChanged;
+            textBoxGenre.Validating += TextBoxGenre_Validating;
             // 
-            // labelStatuse
+            // labelGenre
             // 
-            labelStatuse.AutoSize = true;
-            labelStatuse.Dock = DockStyle.Top;
-            labelStatuse.ForeColor = Color.White;
-            labelStatuse.Location = new Point(10, 10);
-            labelStatuse.Name = "labelStatuse";
-            labelStatuse.Size = new Size(136, 25);
-            labelStatuse.TabIndex = 0;
-            labelStatuse.Text = "Статус выхода";
+            labelGenre.AutoSize = true;
+            labelGenre.Dock = DockStyle.Top;
+            labelGenre.ForeColor = Color.White;
+            labelGenre.Location = new Point(10, 10);
+            labelGenre.Name = "labelGenre";
+            labelGenre.Size = new Size(120, 25);
+            labelGenre.TabIndex = 0;
+            labelGenre.Text = "Жанр аниме";
             // 
             // errorProvider
             // 
             errorProvider.ContainerControl = this;
             // 
-            // FormAddStatus
+            // FormAddUpdateGenre
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(434, 141);
             Controls.Add(panelFill);
             Controls.Add(flowLayoutPanelBottom);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
-            Name = "FormAddStatus";
-            Text = "Статус аниме";
+            Name = "FormAddUpdateGenre";
+            Text = "Жанр";
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();
             panelFill.ResumeLayout(false);
@@ -144,8 +144,8 @@
         private Button btSaveChenges;
         private Button btConcel;
         private Panel panelFill;
-        protected internal TextBox textBoxStatuse;
-        private Label labelStatuse;
+        protected internal TextBox textBoxGenre;
+        private Label labelGenre;
         private ErrorProvider errorProvider;
     }
 }

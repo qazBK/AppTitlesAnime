@@ -40,7 +40,7 @@
             butnShowTypes.ForeColor = Color.White;
             butnShowTypes.Location = new Point(12, 12);
             butnShowTypes.Name = "butnShowTypes";
-            butnShowTypes.Size = new Size(324, 35);
+            butnShowTypes.Size = new Size(337, 35);
             butnShowTypes.TabIndex = 0;
             butnShowTypes.Text = "Отобразить список \"Типы аниме\"";
             butnShowTypes.UseVisualStyleBackColor = false;

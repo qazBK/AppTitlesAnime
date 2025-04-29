@@ -1,6 +1,6 @@
 ﻿namespace AppTitleAnime
 {
-    partial class FormAddGenre
+    partial class FormAddUpdateType
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@
             btSaveChenges = new Button();
             btConcel = new Button();
             panelFill = new Panel();
-            textBoxGenre = new TextBox();
-            labelGenre = new Label();
+            textBoxType = new TextBox();
+            labelType = new Label();
             errorProvider = new ErrorProvider(components);
             flowLayoutPanelBottom.SuspendLayout();
             panelFill.SuspendLayout();
@@ -83,41 +83,41 @@
             // panelFill
             // 
             panelFill.BackColor = Color.FromArgb(64, 64, 64);
-            panelFill.Controls.Add(textBoxGenre);
-            panelFill.Controls.Add(labelGenre);
+            panelFill.Controls.Add(textBoxType);
+            panelFill.Controls.Add(labelType);
             panelFill.Dock = DockStyle.Fill;
             panelFill.Location = new Point(0, 0);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(10, 10, 20, 10);
             panelFill.Size = new Size(434, 80);
-            panelFill.TabIndex = 0;
+            panelFill.TabIndex = 1;
             // 
-            // textBoxGenre
+            // textBoxType
             // 
-            textBoxGenre.Dock = DockStyle.Top;
-            textBoxGenre.Location = new Point(10, 35);
-            textBoxGenre.Name = "textBoxGenre";
-            textBoxGenre.Size = new Size(404, 33);
-            textBoxGenre.TabIndex = 1;
-            textBoxGenre.TextChanged += textBoxGenre_TextChanged;
-            textBoxGenre.Validating += TextBoxGenre_Validating;
+            textBoxType.Dock = DockStyle.Top;
+            textBoxType.Location = new Point(10, 35);
+            textBoxType.Name = "textBoxType";
+            textBoxType.Size = new Size(404, 33);
+            textBoxType.TabIndex = 1;
+            textBoxType.TextChanged += textBoxType_TextChanged;
+            textBoxType.Validating += TextBoxType_Validating;
             // 
-            // labelGenre
+            // labelType
             // 
-            labelGenre.AutoSize = true;
-            labelGenre.Dock = DockStyle.Top;
-            labelGenre.ForeColor = Color.White;
-            labelGenre.Location = new Point(10, 10);
-            labelGenre.Name = "labelGenre";
-            labelGenre.Size = new Size(120, 25);
-            labelGenre.TabIndex = 0;
-            labelGenre.Text = "Жанр аниме";
+            labelType.AutoSize = true;
+            labelType.Dock = DockStyle.Top;
+            labelType.ForeColor = Color.White;
+            labelType.Location = new Point(10, 10);
+            labelType.Name = "labelType";
+            labelType.Size = new Size(104, 25);
+            labelType.TabIndex = 0;
+            labelType.Text = "Тип аниме";
             // 
             // errorProvider
             // 
             errorProvider.ContainerControl = this;
             // 
-            // FormAddGenre
+            // FormAddType
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -127,8 +127,8 @@
             Controls.Add(flowLayoutPanelBottom);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
-            Name = "FormAddGenre";
-            Text = "Жанр";
+            Name = "FormAddType";
+            Text = "Тиип аниме";
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();
             panelFill.ResumeLayout(false);
@@ -141,11 +141,11 @@
         #endregion
 
         private FlowLayoutPanel flowLayoutPanelBottom;
+        private Panel panelFill;
         private Button btSaveChenges;
         private Button btConcel;
-        private Panel panelFill;
-        protected internal TextBox textBoxGenre;
-        private Label labelGenre;
+        private Label labelType;
+        protected internal TextBox textBoxType;
         private ErrorProvider errorProvider;
     }
 }
