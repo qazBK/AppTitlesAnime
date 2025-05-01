@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             panelFill = new Panel();
+            textBoxDescription = new TextBox();
+            labelDescription = new Label();
+            textBoxStudio = new TextBox();
+            labelStudio = new Label();
+            numericUpDownDuration = new NumericUpDown();
+            labelDuration = new Label();
+            numUpDownCountSerias = new NumericUpDown();
             labelCountSerias = new Label();
             textBoxType = new TextBox();
             labelType = new Label();
@@ -39,18 +46,19 @@
             flowLayoutPanelBottom = new FlowLayoutPanel();
             btSaveChenges = new Button();
             btConcel = new Button();
-            numUpDownCountSerias = new NumericUpDown();
-            numericUpDownDuration = new NumericUpDown();
-            labelDuration = new Label();
             panelFill.SuspendLayout();
-            flowLayoutPanelBottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numUpDownCountSerias).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDuration).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numUpDownCountSerias).BeginInit();
+            flowLayoutPanelBottom.SuspendLayout();
             SuspendLayout();
             // 
             // panelFill
             // 
             panelFill.BackColor = Color.FromArgb(64, 64, 64);
+            panelFill.Controls.Add(textBoxDescription);
+            panelFill.Controls.Add(labelDescription);
+            panelFill.Controls.Add(textBoxStudio);
+            panelFill.Controls.Add(labelStudio);
             panelFill.Controls.Add(numericUpDownDuration);
             panelFill.Controls.Add(labelDuration);
             panelFill.Controls.Add(numUpDownCountSerias);
@@ -67,6 +75,73 @@
             panelFill.Padding = new Padding(10, 10, 20, 10);
             panelFill.Size = new Size(859, 511);
             panelFill.TabIndex = 2;
+            // 
+            // textBoxDescription
+            // 
+            textBoxDescription.Dock = DockStyle.Top;
+            textBoxDescription.Location = new Point(10, 383);
+            textBoxDescription.Name = "textBoxDescription";
+            textBoxDescription.ScrollBars = ScrollBars.Vertical;
+            textBoxDescription.Size = new Size(829, 33);
+            textBoxDescription.TabIndex = 20;
+            // 
+            // labelDescription
+            // 
+            labelDescription.AutoSize = true;
+            labelDescription.Dock = DockStyle.Top;
+            labelDescription.ForeColor = Color.White;
+            labelDescription.Location = new Point(10, 358);
+            labelDescription.Name = "labelDescription";
+            labelDescription.Size = new Size(99, 25);
+            labelDescription.TabIndex = 19;
+            labelDescription.Text = "Описание";
+            // 
+            // textBoxStudio
+            // 
+            textBoxStudio.Dock = DockStyle.Top;
+            textBoxStudio.Location = new Point(10, 325);
+            textBoxStudio.Name = "textBoxStudio";
+            textBoxStudio.Size = new Size(829, 33);
+            textBoxStudio.TabIndex = 18;
+            // 
+            // labelStudio
+            // 
+            labelStudio.AutoSize = true;
+            labelStudio.Dock = DockStyle.Top;
+            labelStudio.ForeColor = Color.White;
+            labelStudio.Location = new Point(10, 300);
+            labelStudio.Name = "labelStudio";
+            labelStudio.Size = new Size(72, 25);
+            labelStudio.TabIndex = 17;
+            labelStudio.Text = "Студия";
+            // 
+            // numericUpDownDuration
+            // 
+            numericUpDownDuration.Dock = DockStyle.Top;
+            numericUpDownDuration.Location = new Point(10, 267);
+            numericUpDownDuration.Name = "numericUpDownDuration";
+            numericUpDownDuration.Size = new Size(829, 33);
+            numericUpDownDuration.TabIndex = 16;
+            numericUpDownDuration.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // labelDuration
+            // 
+            labelDuration.AutoSize = true;
+            labelDuration.Dock = DockStyle.Top;
+            labelDuration.ForeColor = Color.White;
+            labelDuration.Location = new Point(10, 242);
+            labelDuration.Name = "labelDuration";
+            labelDuration.Size = new Size(292, 25);
+            labelDuration.TabIndex = 15;
+            labelDuration.Text = "Продолжительность серии мин.";
+            // 
+            // numUpDownCountSerias
+            // 
+            numUpDownCountSerias.Dock = DockStyle.Top;
+            numUpDownCountSerias.Location = new Point(10, 209);
+            numUpDownCountSerias.Name = "numUpDownCountSerias";
+            numUpDownCountSerias.Size = new Size(829, 33);
+            numUpDownCountSerias.TabIndex = 14;
             // 
             // labelCountSerias
             // 
@@ -175,35 +250,6 @@
             btConcel.Text = "Отмена";
             btConcel.UseVisualStyleBackColor = false;
             // 
-            // numUpDownCountSerias
-            // 
-            numUpDownCountSerias.Dock = DockStyle.Top;
-            numUpDownCountSerias.Location = new Point(10, 209);
-            numUpDownCountSerias.Name = "numUpDownCountSerias";
-            numUpDownCountSerias.Size = new Size(829, 33);
-            numUpDownCountSerias.TabIndex = 14;
-            // 
-            // numericUpDownDuration
-            // 
-            numericUpDownDuration.Dock = DockStyle.Top;
-            numericUpDownDuration.Location = new Point(10, 267);
-            numericUpDownDuration.Name = "numericUpDownDuration";
-            numericUpDownDuration.Size = new Size(829, 33);
-            numericUpDownDuration.TabIndex = 16;
-            numericUpDownDuration.ValueChanged += numericUpDown1_ValueChanged;
-            // 
-            // labelDuration
-            // 
-            labelDuration.AutoSize = true;
-            labelDuration.Dock = DockStyle.Top;
-            labelDuration.ForeColor = Color.White;
-            labelDuration.Location = new Point(10, 242);
-            labelDuration.Name = "labelDuration";
-            labelDuration.Size = new Size(292, 25);
-            labelDuration.TabIndex = 15;
-            labelDuration.Text = "Продолжительность серии мин.";
-            labelDuration.Click += this.label1_Click;
-            // 
             // FormAddUpdateTitle
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
@@ -214,13 +260,13 @@
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
             Name = "FormAddUpdateTitle";
-            Text = "FormAddUpdateTitle";
+            Text = "Информация об тайтле";
             panelFill.ResumeLayout(false);
             panelFill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownDuration).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numUpDownCountSerias).EndInit();
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numUpDownCountSerias).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownDuration).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -241,5 +287,9 @@
         private NumericUpDown numericUpDownDuration;
         private Label labelDuration;
         private NumericUpDown numUpDownCountSerias;
+        protected internal TextBox textBoxStudio;
+        private Label labelStudio;
+        protected internal TextBox textBoxDescription;
+        private Label labelDescription;
     }
 }

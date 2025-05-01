@@ -123,9 +123,9 @@
             Controls.Add(PanelFill);
             Controls.Add(flowLayoutPanelTop);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "FormListTitles";
-            Text = "FormListTitles";
+            Text = "Аниме тайтлы";
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();
             PanelFill.ResumeLayout(false);
