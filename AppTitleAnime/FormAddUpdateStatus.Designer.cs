@@ -118,7 +118,7 @@
             // 
             errorProvider.ContainerControl = this;
             // 
-            // FormAddStatus
+            // FormAddUpdateStatus
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -127,7 +127,8 @@
             Controls.Add(flowLayoutPanelBottom);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
-            Name = "FormAddStatus";
+            Name = "FormAddUpdateStatus";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Статус аниме";
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();

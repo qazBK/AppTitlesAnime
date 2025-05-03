@@ -124,7 +124,7 @@
             // 
             errorProvider.ContainerControl = this;
             // 
-            // FormListGenre
+            // FormListGenres
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -134,7 +134,8 @@
             Controls.Add(flowLayoutPanelTop);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
-            Name = "FormListGenre";
+            Name = "FormListGenres";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Жанры аниме";
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();

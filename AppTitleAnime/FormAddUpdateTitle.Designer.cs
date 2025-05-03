@@ -37,7 +37,7 @@
             labelDuration = new Label();
             numUpDownCountSerias = new NumericUpDown();
             labelCountSerias = new Label();
-            textBoxType = new TextBox();
+            comboBoxType = new ComboBox();
             labelType = new Label();
             textBoxName = new TextBox();
             labelName = new Label();
@@ -63,7 +63,7 @@
             panelFill.Controls.Add(labelDuration);
             panelFill.Controls.Add(numUpDownCountSerias);
             panelFill.Controls.Add(labelCountSerias);
-            panelFill.Controls.Add(textBoxType);
+            panelFill.Controls.Add(comboBoxType);
             panelFill.Controls.Add(labelType);
             panelFill.Controls.Add(textBoxName);
             panelFill.Controls.Add(labelName);
@@ -73,17 +73,18 @@
             panelFill.Location = new Point(0, 0);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(10, 10, 20, 10);
-            panelFill.Size = new Size(859, 511);
+            panelFill.Size = new Size(859, 535);
             panelFill.TabIndex = 2;
             // 
             // textBoxDescription
             // 
-            textBoxDescription.Dock = DockStyle.Top;
+            textBoxDescription.Dock = DockStyle.Fill;
             textBoxDescription.Location = new Point(10, 383);
+            textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.ScrollBars = ScrollBars.Vertical;
-            textBoxDescription.Size = new Size(829, 33);
-            textBoxDescription.TabIndex = 20;
+            textBoxDescription.Size = new Size(829, 142);
+            textBoxDescription.TabIndex = 29;
             // 
             // labelDescription
             // 
@@ -93,7 +94,7 @@
             labelDescription.Location = new Point(10, 358);
             labelDescription.Name = "labelDescription";
             labelDescription.Size = new Size(99, 25);
-            labelDescription.TabIndex = 19;
+            labelDescription.TabIndex = 28;
             labelDescription.Text = "Описание";
             // 
             // textBoxStudio
@@ -102,7 +103,7 @@
             textBoxStudio.Location = new Point(10, 325);
             textBoxStudio.Name = "textBoxStudio";
             textBoxStudio.Size = new Size(829, 33);
-            textBoxStudio.TabIndex = 18;
+            textBoxStudio.TabIndex = 27;
             // 
             // labelStudio
             // 
@@ -112,17 +113,19 @@
             labelStudio.Location = new Point(10, 300);
             labelStudio.Name = "labelStudio";
             labelStudio.Size = new Size(72, 25);
-            labelStudio.TabIndex = 17;
+            labelStudio.TabIndex = 26;
             labelStudio.Text = "Студия";
             // 
             // numericUpDownDuration
             // 
             numericUpDownDuration.Dock = DockStyle.Top;
             numericUpDownDuration.Location = new Point(10, 267);
+            numericUpDownDuration.Maximum = new decimal(new int[] { 1442, 0, 0, 0 });
+            numericUpDownDuration.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownDuration.Name = "numericUpDownDuration";
             numericUpDownDuration.Size = new Size(829, 33);
-            numericUpDownDuration.TabIndex = 16;
-            numericUpDownDuration.ValueChanged += numericUpDown1_ValueChanged;
+            numericUpDownDuration.TabIndex = 25;
+            numericUpDownDuration.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // labelDuration
             // 
@@ -132,16 +135,19 @@
             labelDuration.Location = new Point(10, 242);
             labelDuration.Name = "labelDuration";
             labelDuration.Size = new Size(292, 25);
-            labelDuration.TabIndex = 15;
+            labelDuration.TabIndex = 24;
             labelDuration.Text = "Продолжительность серии мин.";
             // 
             // numUpDownCountSerias
             // 
             numUpDownCountSerias.Dock = DockStyle.Top;
             numUpDownCountSerias.Location = new Point(10, 209);
+            numUpDownCountSerias.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
+            numUpDownCountSerias.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numUpDownCountSerias.Name = "numUpDownCountSerias";
             numUpDownCountSerias.Size = new Size(829, 33);
-            numUpDownCountSerias.TabIndex = 14;
+            numUpDownCountSerias.TabIndex = 23;
+            numUpDownCountSerias.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // labelCountSerias
             // 
@@ -151,16 +157,18 @@
             labelCountSerias.Location = new Point(10, 184);
             labelCountSerias.Name = "labelCountSerias";
             labelCountSerias.Size = new Size(176, 25);
-            labelCountSerias.TabIndex = 6;
+            labelCountSerias.TabIndex = 22;
             labelCountSerias.Text = "Количество серий ";
             // 
-            // textBoxType
+            // comboBoxType
             // 
-            textBoxType.Dock = DockStyle.Top;
-            textBoxType.Location = new Point(10, 151);
-            textBoxType.Name = "textBoxType";
-            textBoxType.Size = new Size(829, 33);
-            textBoxType.TabIndex = 5;
+            comboBoxType.Dock = DockStyle.Top;
+            comboBoxType.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxType.FormattingEnabled = true;
+            comboBoxType.Location = new Point(10, 151);
+            comboBoxType.Name = "comboBoxType";
+            comboBoxType.Size = new Size(829, 33);
+            comboBoxType.TabIndex = 21;
             // 
             // labelType
             // 
@@ -218,7 +226,7 @@
             flowLayoutPanelBottom.Controls.Add(btSaveChenges);
             flowLayoutPanelBottom.Controls.Add(btConcel);
             flowLayoutPanelBottom.Dock = DockStyle.Bottom;
-            flowLayoutPanelBottom.Location = new Point(0, 511);
+            flowLayoutPanelBottom.Location = new Point(0, 535);
             flowLayoutPanelBottom.Name = "flowLayoutPanelBottom";
             flowLayoutPanelBottom.Padding = new Padding(10, 10, 20, 10);
             flowLayoutPanelBottom.Size = new Size(859, 61);
@@ -254,12 +262,13 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(859, 572);
+            ClientSize = new Size(859, 596);
             Controls.Add(panelFill);
             Controls.Add(flowLayoutPanelBottom);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
             Name = "FormAddUpdateTitle";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Информация об тайтле";
             panelFill.ResumeLayout(false);
             panelFill.PerformLayout();
@@ -272,24 +281,23 @@
         }
 
         #endregion
-
-        private Panel panelFill;
         protected internal TextBox textBoxOriginalName;
         private Label labelOriginalName;
         private FlowLayoutPanel flowLayoutPanelBottom;
         private Button btSaveChenges;
         private Button btConcel;
-        private Label labelCountSerias;
-        protected internal TextBox textBoxType;
         private Label labelType;
         protected internal TextBox textBoxName;
         private Label labelName;
-        private NumericUpDown numericUpDownDuration;
-        private Label labelDuration;
-        private NumericUpDown numUpDownCountSerias;
-        protected internal TextBox textBoxStudio;
-        private Label labelStudio;
         protected internal TextBox textBoxDescription;
         private Label labelDescription;
+        protected internal TextBox textBoxStudio;
+        private Label labelStudio;
+        private Label labelDuration;
+        private Label labelCountSerias;
+        protected internal Panel panelFill;
+        protected internal ComboBox comboBoxType;
+        protected internal NumericUpDown numericUpDownDuration;
+        protected internal NumericUpDown numUpDownCountSerias;
     }
 }
