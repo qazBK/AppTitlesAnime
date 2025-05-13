@@ -1,5 +1,4 @@
 ﻿namespace AppTitleAnime.Models;
-
 public partial class AnimeTitle
 {
     public int Id { get; set; }
