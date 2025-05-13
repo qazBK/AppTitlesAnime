@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AppTitleAnime.Models_2;
-
+﻿namespace AppTitleAnime.Models;
 public partial class AnimeTitle
 {
     public int Id { get; set; }
@@ -17,16 +13,15 @@ public partial class AnimeTitle
 
     public short Duration { get; set; }
 
+    public string Studio { get; set; } = null!;
+
     public string? Poster { get; set; }
 
     public string? Description { get; set; }
 
-    public short IdStudio { get; set; }
 
 
-    //навигация
-    public virtual Studio Studio { get; set; } = null!;
-
+    // навигация
     public virtual Type Type { get; set; } = null!;
 
     public virtual ICollection<TitlesGenre> TitlesGenres { get; set; } = new List<TitlesGenre>();

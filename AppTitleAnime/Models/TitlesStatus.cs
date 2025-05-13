@@ -1,4 +1,7 @@
-﻿namespace AppTitleAnime.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace AppTitleAnime.Models_2;
 
 public partial class TitlesStatus
 {
@@ -10,9 +13,7 @@ public partial class TitlesStatus
 
     public DateOnly? DateStatus { get; set; }
 
-    //Навигация
+    public virtual AnimeTitle IdAnimeNavigation { get; set; } = null!;
 
-    public virtual AnimeTitle AnimeTitle { get; set; } = null!;
-
-    public virtual Status Status { get; set; } = null!;
+    public virtual Status IdStatusNavigation { get; set; } = null!;
 }
