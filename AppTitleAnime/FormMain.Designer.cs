@@ -33,6 +33,7 @@
             butnShowStatuse = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             buttonShowTitles = new Button();
+            buttonShowStudio = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -80,6 +81,7 @@
             flowLayoutPanel1.Controls.Add(butnShowGenre);
             flowLayoutPanel1.Controls.Add(butnShowTypes);
             flowLayoutPanel1.Controls.Add(butnShowStatuse);
+            flowLayoutPanel1.Controls.Add(buttonShowStudio);
             flowLayoutPanel1.Controls.Add(buttonShowTitles);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
@@ -94,13 +96,26 @@
             buttonShowTitles.AutoSize = true;
             buttonShowTitles.BackColor = Color.SlateBlue;
             buttonShowTitles.ForeColor = Color.White;
-            buttonShowTitles.Location = new Point(13, 136);
+            buttonShowTitles.Location = new Point(13, 177);
             buttonShowTitles.Name = "buttonShowTitles";
             buttonShowTitles.Size = new Size(337, 35);
             buttonShowTitles.TabIndex = 4;
             buttonShowTitles.Text = "Отобразить список \"Аниме\"";
             buttonShowTitles.UseVisualStyleBackColor = false;
             buttonShowTitles.Click += ButtonShowTitles_Click;
+            // 
+            // buttonShowStudio
+            // 
+            buttonShowStudio.AutoSize = true;
+            buttonShowStudio.BackColor = Color.SlateBlue;
+            buttonShowStudio.ForeColor = Color.White;
+            buttonShowStudio.Location = new Point(13, 136);
+            buttonShowStudio.Name = "buttonShowStudio";
+            buttonShowStudio.Size = new Size(337, 35);
+            buttonShowStudio.TabIndex = 5;
+            buttonShowStudio.Text = "Отобразить список \"Студии\"";
+            buttonShowStudio.UseVisualStyleBackColor = false;
+            buttonShowStudio.Click += buttonShowStudio_Click;
             // 
             // FormMain
             // 
@@ -126,5 +141,6 @@
         private Button butnShowStatuse;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button buttonShowTitles;
+        private Button buttonShowStudio;
     }
 }

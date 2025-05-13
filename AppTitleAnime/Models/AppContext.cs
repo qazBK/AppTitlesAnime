@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AppTitleAnime.Models_2;
 
-public partial class AnimeTitlesContext : DbContext
+public partial class AppContext : DbContext
 {
-    public AnimeTitlesContext()
+    public AppContext()
     {
     }
 
-    public AnimeTitlesContext(DbContextOptions<AnimeTitlesContext> options)
+    public AppContext(DbContextOptions<AppContext> options)
         : base(options)
     {
     }

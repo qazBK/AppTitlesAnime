@@ -1,4 +1,4 @@
-﻿namespace AppTitleAnime.Models;
+﻿/*namespace AppTitleAnime.Models;
 
 public partial class Genre
 {
@@ -10,3 +10,4 @@ public partial class Genre
     //Навигация
     public virtual ICollection<TitlesGenre> TitlesGenres { get; set; } = new List<TitlesGenre>();
 }
+*/

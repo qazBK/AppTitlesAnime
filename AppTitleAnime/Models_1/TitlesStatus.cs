@@ -1,4 +1,4 @@
-﻿namespace AppTitleAnime.Models;
+﻿/*namespace AppTitleAnime.Models;
 
 public partial class TitlesStatus
 {
@@ -16,3 +16,4 @@ public partial class TitlesStatus
 
     public virtual Status Status { get; set; } = null!;
 }
+*/

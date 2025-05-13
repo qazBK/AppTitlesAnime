@@ -1,4 +1,4 @@
-﻿namespace AppTitleAnime.Models;
+﻿/*namespace AppTitleAnime.Models;
 public partial class AnimeTitle
 {
     public int Id { get; set; }
@@ -28,3 +28,4 @@ public partial class AnimeTitle
 
     public virtual ICollection<TitlesStatus> TitlesStatuses { get; set; } = new List<TitlesStatus>();
 }
+*/

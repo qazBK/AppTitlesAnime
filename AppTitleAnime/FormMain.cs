@@ -40,5 +40,11 @@ namespace AppTitleAnime
             FormListTitles formListTitles = new FormListTitles();
             formListTitles.Show();
         }
+
+        private void buttonShowStudio_Click(object sender, EventArgs e)
+        {
+            FormListStudio formListStudio = new FormListStudio();
+            formListStudio.Show();
+        }
     }
 }

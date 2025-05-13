@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
-using AnimeTitle = AppTitleAnime.Models.AnimeTitle;
-using AppContext = AppTitleAnime.Models.AppContext;
-using Type = AppTitleAnime.Models.Type;
+using AnimeTitle = AppTitleAnime.Models_2.AnimeTitle;
+using AppContext = AppTitleAnime.Models_2.AppContext;
+using Type = AppTitleAnime.Models_2.Type;
 namespace AppTitleAnime
 {
     public partial class FormListTitles : Form
@@ -59,7 +59,7 @@ namespace AppTitleAnime
                 Name = formAddUpdateTitle.textBoxName.Text,
                 CountSeries = Convert.ToInt16(formAddUpdateTitle.numUpDownCountSerias.Value),
                 Duration = Convert.ToInt16(formAddUpdateTitle.numericUpDownDuration.Value),
-                Studio = formAddUpdateTitle.textBoxStudio.Text,
+                //Studio = formAddUpdateTitle.textBoxStudio.Text,
                 Description = formAddUpdateTitle.textBoxDescription.Text
 
             };
@@ -93,7 +93,7 @@ namespace AppTitleAnime
             formAddUpdateTitle.textBoxOriginalName.Text = animeTitle.Name;
             formAddUpdateTitle.numUpDownCountSerias.Value = animeTitle.CountSeries;
             formAddUpdateTitle.numericUpDownDuration.Value = animeTitle.Duration;
-            formAddUpdateTitle.textBoxStudio.Text = animeTitle.Studio;
+           // formAddUpdateTitle.textBoxStudio.Text = animeTitle.Studio;
             formAddUpdateTitle.textBoxDescription.Text = animeTitle.Description;
 
             this.db.Types.Load();
@@ -114,7 +114,7 @@ namespace AppTitleAnime
             animeTitle.Name = formAddUpdateTitle.textBoxName.Text;
             animeTitle.CountSeries = Convert.ToInt16(formAddUpdateTitle.numUpDownCountSerias.Value);
             animeTitle.Duration = Convert.ToInt16(formAddUpdateTitle.numericUpDownDuration.Value);
-            animeTitle.Studio = formAddUpdateTitle.textBoxStudio.Text;
+           // animeTitle.Studio = formAddUpdateTitle.textBoxStudio.Text;
             animeTitle.Description = formAddUpdateTitle.textBoxDescription.Text;
 
 

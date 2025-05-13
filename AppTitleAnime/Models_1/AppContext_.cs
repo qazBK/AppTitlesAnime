@@ -1,17 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*using Microsoft.EntityFrameworkCore;
 
-namespace AppTitleAnime.Models;
+namespace AppTitleAnime.Models_3;
 
 public partial class AppContext : DbContext
 {
-    /*public DbAnimeTitlesContext()
+    *//*public DbAnimeTitlesContext()
     {
     }
 
     public DbAnimeTitlesContext(DbContextOptions<DbAnimeTitlesContext> options)
         : base(options)
     {
-    }*/
+    }*//*
 
     public virtual DbSet<AnimeTitle> AnimeTitles { get; set; }
 
@@ -26,8 +26,8 @@ public partial class AppContext : DbContext
     public virtual DbSet<Type> Types { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-/*#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-  */      => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=db_anime_titles;Username=postgres;Password=1111");
+*//*#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+  *//*      => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=db_anime_titles;Username=postgres;Password=1111");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -126,3 +126,4 @@ public partial class AppContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
+*/

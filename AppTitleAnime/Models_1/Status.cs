@@ -1,4 +1,4 @@
-﻿namespace AppTitleAnime.Models;
+﻿/*namespace AppTitleAnime.Models;
 
 public partial class Status
 {
@@ -10,3 +10,4 @@ public partial class Status
     //Навигация
     public virtual ICollection<TitlesStatus> TitlesStatuses { get; set; } = new List<TitlesStatus>();
 }
+*/

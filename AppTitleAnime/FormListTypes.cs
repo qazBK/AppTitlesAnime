@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Data;
-using AppContext = AppTitleAnime.Models.AppContext;
-using Type = AppTitleAnime.Models.Type;
+using AppContext = AppTitleAnime.Models_2.AppContext;
+using Type = AppTitleAnime.Models_2.Type;
 
 namespace AppTitleAnime
 {

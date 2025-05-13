@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 
 namespace AppTitleAnime.Models;
@@ -17,3 +17,4 @@ public partial class TitlesGenre
 
     public virtual Genre Genre { get; set; } = null!;
 }
+*/
