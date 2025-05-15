@@ -92,7 +92,7 @@ public partial class AnimeTitlesContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
-            entity.Property(e => e.Studio1).HasColumnName("studio");
+            entity.Property(e => e.AnimeStudio).HasColumnName("studio");
         });
 
         modelBuilder.Entity<TitlesGenre>(entity =>

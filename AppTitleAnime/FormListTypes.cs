@@ -49,19 +49,7 @@ namespace AppTitleAnime
 
             if (DialogResult == DialogResult.Cancel) // чек позже result
                 return;
-          /*  ///////////////////////////
-            string newTypeAnime = formAddType.textBoxType.Text;
-
-
-            bool exists = db.Types.Any(t => t.TypeAnime == newTypeAnime);
-
-
-            if (exists)
-            {
-                MessageBox.Show("Запись с таким типом аниме уже существует.");
-                return;
-            }
-            //////////////////////////////////*/
+          
             Type type = new Type();
             type.TypeAnime = formAddType.textBoxType.Text;
 

@@ -77,6 +77,7 @@
             btUpdateStudio.TabIndex = 2;
             btUpdateStudio.Text = "Изменить";
             btUpdateStudio.UseVisualStyleBackColor = false;
+            btUpdateStudio.Click += btUpdateStudio_Click;
             // 
             // btDeleteStudio
             // 
@@ -89,6 +90,7 @@
             btDeleteStudio.TabIndex = 1;
             btDeleteStudio.Text = "Удалить";
             btDeleteStudio.UseVisualStyleBackColor = false;
+            btDeleteStudio.Click += btDeleteStudio_Click;
             // 
             // PanelFill
             // 
