@@ -31,7 +31,7 @@
             panelFill = new Panel();
             textBoxDescription = new TextBox();
             labelDescription = new Label();
-            textBoxStudio = new TextBox();
+            comboBoxStudio = new ComboBox();
             labelStudio = new Label();
             numericUpDownDuration = new NumericUpDown();
             labelDuration = new Label();
@@ -57,7 +57,7 @@
             panelFill.BackColor = Color.FromArgb(64, 64, 64);
             panelFill.Controls.Add(textBoxDescription);
             panelFill.Controls.Add(labelDescription);
-            panelFill.Controls.Add(textBoxStudio);
+            panelFill.Controls.Add(comboBoxStudio);
             panelFill.Controls.Add(labelStudio);
             panelFill.Controls.Add(numericUpDownDuration);
             panelFill.Controls.Add(labelDuration);
@@ -84,7 +84,7 @@
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.ScrollBars = ScrollBars.Vertical;
             textBoxDescription.Size = new Size(829, 142);
-            textBoxDescription.TabIndex = 29;
+            textBoxDescription.TabIndex = 32;
             // 
             // labelDescription
             // 
@@ -94,16 +94,18 @@
             labelDescription.Location = new Point(10, 358);
             labelDescription.Name = "labelDescription";
             labelDescription.Size = new Size(99, 25);
-            labelDescription.TabIndex = 28;
+            labelDescription.TabIndex = 31;
             labelDescription.Text = "Описание";
             // 
-            // textBoxStudio
+            // comboBoxStudio
             // 
-            textBoxStudio.Dock = DockStyle.Top;
-            textBoxStudio.Location = new Point(10, 325);
-            textBoxStudio.Name = "textBoxStudio";
-            textBoxStudio.Size = new Size(829, 33);
-            textBoxStudio.TabIndex = 27;
+            comboBoxStudio.Dock = DockStyle.Top;
+            comboBoxStudio.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxStudio.FormattingEnabled = true;
+            comboBoxStudio.Location = new Point(10, 325);
+            comboBoxStudio.Name = "comboBoxStudio";
+            comboBoxStudio.Size = new Size(829, 33);
+            comboBoxStudio.TabIndex = 30;
             // 
             // labelStudio
             // 
@@ -289,9 +291,6 @@
         private Label labelType;
         protected internal TextBox textBoxName;
         private Label labelName;
-        protected internal TextBox textBoxDescription;
-        private Label labelDescription;
-        protected internal TextBox textBoxStudio;
         private Label labelStudio;
         private Label labelDuration;
         private Label labelCountSerias;
@@ -299,5 +298,8 @@
         protected internal ComboBox comboBoxType;
         protected internal NumericUpDown numericUpDownDuration;
         protected internal NumericUpDown numUpDownCountSerias;
+        protected internal TextBox textBoxDescription;
+        private Label labelDescription;
+        protected internal ComboBox comboBoxStudio;
     }
 }

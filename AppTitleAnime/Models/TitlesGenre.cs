@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppTitleAnime.Models;
+namespace AppTitleAnime.Models_2;
 
 public partial class TitlesGenre
 {
@@ -11,9 +11,7 @@ public partial class TitlesGenre
 
     public int IdAnime { get; set; }
 
+    public virtual AnimeTitle IdAnimeNavigation { get; set; } = null!;
 
-    //Навигация
-    public virtual AnimeTitle AnimeTitle { get; set; } = null!;
-
-    public virtual Genre Genre { get; set; } = null!;
+    public virtual Genre IdGenreNavigation { get; set; } = null!;
 }

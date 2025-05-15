@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using AppContext = AppTitleAnime.Models.AppContext;
+using AppContext = AppTitleAnime.Models_2.AppContext;
 namespace AppTitleAnime
 {
     public partial class FormAddUpdateGenre : Form

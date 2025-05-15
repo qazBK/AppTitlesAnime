@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using AppTitleAnime.Models_2;
 using Microsoft.EntityFrameworkCore;
+using Type = AppTitleAnime.Models_2.Type;
 
-namespace AppTitleAnime.Models_2;
+namespace AppTitleAnime;
 
-public partial class AppContext : DbContext
+public partial class AnimeTitlesContext : DbContext
 {
-    public AppContext()
+    public AnimeTitlesContext()
     {
     }
 
-    public AppContext(DbContextOptions<AppContext> options)
+    public AnimeTitlesContext(DbContextOptions<AnimeTitlesContext> options)
         : base(options)
     {
     }
@@ -30,8 +32,8 @@ public partial class AppContext : DbContext
     public virtual DbSet<Type> Types { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-/*#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.*/
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=anime_titles;Username=postgres;Password=1111");
+/*#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+      */  => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=anime_titles;Username=postgres;Password=1111");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -56,7 +58,7 @@ public partial class AppContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_ titles_to_studio");
 
-            entity.HasOne(d => d.Type).WithMany(p => p.AnimeTitles)
+            entity.HasOne(d => d.Studio).WithMany(p => p.AnimeTitles)
                 .HasForeignKey(d => d.IdType)
                 .HasConstraintName("fk_ titles_to_types");
         });
@@ -87,7 +89,9 @@ public partial class AppContext : DbContext
 
             entity.ToTable("studios");
 
-            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("id");
             entity.Property(e => e.AnimeStudio).HasColumnName("studio");
         });
 

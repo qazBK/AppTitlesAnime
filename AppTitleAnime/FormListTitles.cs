@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
 using System.Data;
+using AppTitleAnime.Models_2;
 using Microsoft.EntityFrameworkCore;
-using AnimeTitle = AppTitleAnime.Models.AnimeTitle;
-using AppContext = AppTitleAnime.Models.AppContext;
-using Type = AppTitleAnime.Models.Type;
+using AnimeTitle = AppTitleAnime.Models_2.AnimeTitle;
+using AppContext = AppTitleAnime.Models_2.AppContext;
+using Type = AppTitleAnime.Models_2.Type;
+using Studio = AppTitleAnime.Models_2.Studio;
 namespace AppTitleAnime
 {
     public partial class FormListTitles : Form
@@ -29,7 +31,7 @@ namespace AppTitleAnime
             dateGridViewTitles.Columns["Name"].HeaderText = "Тайтел";
             dateGridViewTitles.Columns["CountSeries"].HeaderText = "Кол-во эпизодов";
             dateGridViewTitles.Columns["Duration"].HeaderText = "Продолжительность";
-            dateGridViewTitles.Columns["Studio"].HeaderText = "Студия";
+            dateGridViewTitles.Columns["AnimeStudio"].HeaderText = "Студия";
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -48,6 +50,15 @@ namespace AppTitleAnime
             formAddUpdateTitle.comboBoxType.DisplayMember = "TypeAnime";
             formAddUpdateTitle.comboBoxType.ValueMember = "id";
 
+            /*--------------------------------*/
+            
+
+            this.db.Studios.Load();
+            List<Studio> studios = this.db.Studios.Local.OrderBy(o => o.AnimeStudio).ToList();
+            formAddUpdateTitle.comboBoxStudio.DataSource = studios;
+            formAddUpdateTitle.comboBoxStudio.DisplayMember = "AnimeStudio";
+            formAddUpdateTitle.comboBoxStudio.ValueMember = "id";
+            /*----------------------------------*/
             DialogResult = formAddUpdateTitle.ShowDialog();
 
             if (DialogResult == DialogResult.Cancel)
@@ -59,13 +70,18 @@ namespace AppTitleAnime
                 Name = formAddUpdateTitle.textBoxName.Text,
                 CountSeries = Convert.ToInt16(formAddUpdateTitle.numUpDownCountSerias.Value),
                 Duration = Convert.ToInt16(formAddUpdateTitle.numericUpDownDuration.Value),
-                Studio = formAddUpdateTitle.textBoxStudio.Text,
+                //Studio = formAddUpdateTitle.textBoxStudio.Text,
                 Description = formAddUpdateTitle.textBoxDescription.Text
 
             };
             Type type = (Type)formAddUpdateTitle.comboBoxType.SelectedItem;
             animeTitle.IdType = type.Id;
             db.AnimeTitles.Add(animeTitle);
+            /*------------------------*/
+            Studio studio = (Studio)formAddUpdateTitle.comboBoxStudio.SelectedItem;
+            animeTitle.IdStudio = studio.Id;
+            db.AnimeTitles.Add(animeTitle);
+            /*----------------------------*/
             db.SaveChanges();
 
             MessageBox.Show("Новый объект добавлен", "",
@@ -93,7 +109,7 @@ namespace AppTitleAnime
             formAddUpdateTitle.textBoxOriginalName.Text = animeTitle.Name;
             formAddUpdateTitle.numUpDownCountSerias.Value = animeTitle.CountSeries;
             formAddUpdateTitle.numericUpDownDuration.Value = animeTitle.Duration;
-            formAddUpdateTitle.textBoxStudio.Text = animeTitle.Studio;
+           // formAddUpdateTitle.textBoxStudio.Text = animeTitle.Studio;
             formAddUpdateTitle.textBoxDescription.Text = animeTitle.Description;
 
             this.db.Types.Load();
@@ -101,8 +117,16 @@ namespace AppTitleAnime
             formAddUpdateTitle.comboBoxType.DataSource = types;
             formAddUpdateTitle.comboBoxType.DisplayMember = "TypeAnime";
             formAddUpdateTitle.comboBoxType.ValueMember = "id";
-
             formAddUpdateTitle.comboBoxType.SelectedItem = animeTitle.Type;
+
+            ///////////////////////////////
+            this.db.Studios.Load();
+            List<Studio> studios = this.db.Studios.Local.OrderBy(o => o.AnimeStudio).ToList();
+            formAddUpdateTitle.comboBoxStudio.DataSource = studios;
+            formAddUpdateTitle.comboBoxStudio.DisplayMember = "AnimeStudio";
+            formAddUpdateTitle.comboBoxStudio.ValueMember = "id";
+            formAddUpdateTitle.comboBoxStudio.SelectedItem = animeTitle.Studio;
+            ////////////////////
 
             DialogResult result = formAddUpdateTitle.ShowDialog(this);
 
@@ -114,13 +138,21 @@ namespace AppTitleAnime
             animeTitle.Name = formAddUpdateTitle.textBoxName.Text;
             animeTitle.CountSeries = Convert.ToInt16(formAddUpdateTitle.numUpDownCountSerias.Value);
             animeTitle.Duration = Convert.ToInt16(formAddUpdateTitle.numericUpDownDuration.Value);
-            animeTitle.Studio = formAddUpdateTitle.textBoxStudio.Text;
+           // animeTitle.Studio = formAddUpdateTitle.textBoxStudio.Text;
             animeTitle.Description = formAddUpdateTitle.textBoxDescription.Text;
 
 
             Type type = (Type)formAddUpdateTitle.comboBoxType.SelectedItem;
             animeTitle.IdType = type.Id;
             db.AnimeTitles.Update(animeTitle);
+
+
+            ///
+
+            Studio studio = (Studio)formAddUpdateTitle.comboBoxStudio.SelectedItem;
+            animeTitle.IdStudio = studio.Id;
+            db.AnimeTitles.Update(animeTitle);
+            /////
             db.SaveChanges();
             MessageBox.Show("Объект изменён", "",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -173,7 +205,7 @@ namespace AppTitleAnime
                   o.Name,
                   o.CountSeries,
                   o.Duration,
-                  o.Studio
+                  o.Studio.AnimeStudio
               }).
               OrderBy(o => o.TypeAnime).ThenBy(o => o.OriginalName).
               ToList();
